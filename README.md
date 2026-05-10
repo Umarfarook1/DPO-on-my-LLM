@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/license-MIT-1f6feb?style=for-the-badge"/>
 </p>
 
-<sub><i>Pretraining gives you knowledge. Post-training gives you a useful assistant. This repo does the second half — clearly, with a real eval.</i></sub>
+<sub><i>Pretraining gives you knowledge. Post-training gives you a useful assistant. This repo does the second half · clearly, with a real eval.</i></sub>
 
 </div>
 
@@ -26,7 +26,7 @@
 
 Pretrained next-token predictors are not assistants. The transformation from "raw LM" to "thing that follows instructions" is a stack: **SFT** (supervised fine-tune on demonstrations) → **DPO** (direct preference optimization on chosen/rejected pairs) → **eval** (LLM-judge with win-rates and confidence intervals). This repo runs that stack on a small open model and reports honest numbers.
 
-Bonus: pairs naturally with [`Nano-LLM-from-scratch`](https://github.com/Umarfarook1/Nano-LLM-from-scratch) — pretrain there, post-train here.
+Bonus: pairs naturally with [`Nano-LLM-from-scratch`](https://github.com/Umarfarook1/Nano-LLM-from-scratch) · pretrain there, post-train here.
 
 > **Status:** scaffolding the SFT → DPO pipeline. First milestone: a measurable win-rate over the SFT-only baseline.
 
@@ -55,7 +55,7 @@ DPO papers love to report "preference accuracy" on the training distribution. Th
 | Generation quality | Win-rate vs. SFT baseline | LLM-judge with position swap | what users actually feel |
 | Format / refusal | Adherence to system prompt | rule-based suite | post-training often regresses these |
 | Capability | MT-Bench-style multi-turn | LLM-judge graded 1–10 | guards against alignment-tax |
-| Length bias | Length-controlled win-rate | length-matched pairs | DPO loves to ramble — measure it |
+| Length bias | Length-controlled win-rate | length-matched pairs | DPO loves to ramble · measure it |
 
 ## Stack
 
@@ -107,16 +107,16 @@ uv run scripts/report.py --out reports/v1.md
 - [ ] Capability eval (MT-Bench-style subset)
 - [ ] Ablations: β, learning rate, KL coefficient, pref-data size
 - [ ] Push aligned weights + tokenizer + eval card to Hugging Face Hub
-- [ ] Companion blog post: *"DPO without the magic — what actually moved the win-rate"*
+- [ ] Companion blog post: *"DPO without the magic · what actually moved the win-rate"*
 
 ## Inspiration & required reading
 
-- [Rafailov et al. — DPO paper (2023)](https://arxiv.org/abs/2305.18290)
-- [Nathan Lambert — RLHF Book (arXiv 2504.12501)](https://arxiv.org/abs/2504.12501) and [interconnects.ai](https://www.interconnects.ai/)
-- [huggingface/trl](https://github.com/huggingface/trl) — reference implementation
-- [OpenRLHF/OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) — multi-method post-training stack
-- [allenai/open-instruct](https://github.com/allenai/open-instruct) — academia-quality post-training recipes
-- [tatsu-lab/alpaca_eval](https://github.com/tatsu-lab/alpaca_eval) — judging methodology
+- [Rafailov et al. · DPO paper (2023)](https://arxiv.org/abs/2305.18290)
+- [Nathan Lambert · RLHF Book (arXiv 2504.12501)](https://arxiv.org/abs/2504.12501) and [interconnects.ai](https://www.interconnects.ai/)
+- [huggingface/trl](https://github.com/huggingface/trl) · reference implementation
+- [OpenRLHF/OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) · multi-method post-training stack
+- [allenai/open-instruct](https://github.com/allenai/open-instruct) · academia-quality post-training recipes
+- [tatsu-lab/alpaca_eval](https://github.com/tatsu-lab/alpaca_eval) · judging methodology
 
 ---
 
