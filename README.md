@@ -28,7 +28,7 @@ Pretrained next-token predictors are not assistants. The transformation from "ra
 
 Bonus: pairs naturally with [`Nano-LLM-from-scratch`](https://github.com/Umarfarook1/Nano-LLM-from-scratch) · pretrain there, post-train here.
 
-> **Status:** scaffolding the SFT → DPO pipeline. First milestone: a measurable win-rate over the SFT-only baseline.
+> **Status:** design complete, implementation starting · no code in the repo yet. First milestone: a measurable win-rate over the SFT-only baseline.
 
 ## Pipeline
 
@@ -69,7 +69,7 @@ DPO papers love to report "preference accuracy" on the training distribution. Th
 | Judge | larger open model + position-swap | reduces single-judge bias |
 | Eval harness | local; logs JSONL with prompts, completions, judge votes | reproducible |
 
-## Quickstart <sub><i>(coming soon)</i></sub>
+## Quickstart <sub><i>(planned · code landing incrementally)</i></sub>
 
 ```bash
 # 1) SFT on demonstrations (LoRA, single GPU)
