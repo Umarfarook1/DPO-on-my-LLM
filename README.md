@@ -1,9 +1,9 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:134E5E,50:71B280,100:11998E&height=220&section=header&text=DPO-on-my-LLM&fontSize=58&fontColor=ffffff&fontAlignY=38&desc=Post-training%20a%20small%20LLM%20%E2%80%94%20SFT%20%E2%86%92%20DPO%20%E2%86%92%20judge-eval&descAlignY=62&descSize=17&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:134E5E,50:71B280,100:11998E&height=220&section=header&text=DPO-on-my-LLM&fontSize=58&fontColor=ffffff&fontAlignY=38&desc=Post-training%20a%20small%20LLM%20%C2%B7%20SFT%20%E2%86%92%20DPO%20%E2%86%92%20judge-eval&descAlignY=62&descSize=17&animation=fadeIn" width="100%"/>
 
 <a href="https://github.com/Umarfarook1/DPO-on-my-LLM">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=600&color=38EF7D&center=true&vCenter=true&width=900&lines=Take+a+pretrained+model.+Teach+it+to+be+useful.;SFT+on+demonstrations+%E2%86%92+DPO+on+preferences.;LLM-judge+eval+harness+with+win-rate+and+CIs.;The+post-training+stack%2C+end-to-end." alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=600&color=38EF7D&center=true&vCenter=true&width=900&lines=Take+a+pretrained+model.+Teach+it+to+be+useful.;SFT+on+demonstrations+%E2%86%92+DPO+on+preferences.;Planned+LLM-judge+eval+harness+with+win-rate+and+CIs.;The+post-training+stack%2C+designed+end-to-end." alt="Typing SVG" />
 </a>
 
 <br/>
@@ -16,19 +16,19 @@
   <img src="https://img.shields.io/badge/license-MIT-1f6feb?style=for-the-badge"/>
 </p>
 
-<sub><i>Pretraining gives you knowledge. Post-training gives you a useful assistant. This repo does the second half · clearly, with a real eval.</i></sub>
+<sub><i>Pretraining gives you knowledge. Post-training gives you a useful assistant. This repo will do the second half · clearly, with a real eval.</i></sub>
 
 </div>
 
 ---
 
+> **Status:** no code here yet. This repo is the design: the SFT → DPO → judge-eval pipeline, the eval that decides whether any of it worked, and the reasoning behind both choices. First milestone: a measurable win-rate over the SFT-only baseline.
+
 ## Why this repo exists
 
-Pretrained next-token predictors are not assistants. The transformation from "raw LM" to "thing that follows instructions" is a stack: **SFT** (supervised fine-tune on demonstrations) → **DPO** (direct preference optimization on chosen/rejected pairs) → **eval** (LLM-judge with win-rates and confidence intervals). This repo runs that stack on a small open model and reports honest numbers.
+Pretrained next-token predictors are not assistants. The transformation from "raw LM" to "thing that follows instructions" is a stack: **SFT** (supervised fine-tune on demonstrations) → **DPO** (direct preference optimization on chosen/rejected pairs) → **eval** (LLM-judge with win-rates and confidence intervals). This repo is the plan for running that stack on a small open model and reporting the numbers it produces.
 
 Bonus: pairs naturally with [`Nano-LLM-from-scratch`](https://github.com/Umarfarook1/Nano-LLM-from-scratch) · pretrain there, post-train here.
-
-> **Status:** design complete, implementation starting · no code in the repo yet. First milestone: a measurable win-rate over the SFT-only baseline.
 
 ## Pipeline
 
@@ -47,7 +47,7 @@ flowchart LR
 
 ## What gets measured
 
-DPO papers love to report "preference accuracy" on the training distribution. That's not enough. This repo measures:
+DPO papers love to report "preference accuracy" on the training distribution. That's not enough. This repo will measure:
 
 | Stage | What | How | Why it matters |
 |---|---|---|---|
@@ -69,7 +69,7 @@ DPO papers love to report "preference accuracy" on the training distribution. Th
 | Judge | larger open model + position-swap | reduces single-judge bias |
 | Eval harness | local; logs JSONL with prompts, completions, judge votes | reproducible |
 
-## Quickstart <sub><i>(planned · code landing incrementally)</i></sub>
+## Quickstart <sub><i>(the interface this pipeline will expose · none of it runs today)</i></sub>
 
 ```bash
 # 1) SFT on demonstrations (LoRA, single GPU)
